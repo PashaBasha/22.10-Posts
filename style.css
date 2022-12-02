@@ -1,0 +1,189 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Commissioner', sans-serif;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 200px 5%;
+
+}
+
+
+.get-posts {
+    padding: 20px;
+    border: 0px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-right: 100px;
+
+}
+
+.add-posts {
+    width: 100%;
+    padding: 20px;
+    border: 0px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-right: 100px;
+
+}
+
+
+.open-popup {
+    padding: 20px;
+    border: 0px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-right: 100px;
+}
+
+.open-popup :hover {
+    transform: scale(1.1);
+    box-shadow: 7px 9px 16px -1px rgba(0, 0, 0, 0.12);
+}
+
+.add-posts:hover {
+    transform: scale(1.1);
+    box-shadow: 7px 9px 16px -1px rgba(0, 0, 0, 0.12);
+}
+
+.get-posts:hover {
+    transform: scale(1.1);
+    box-shadow: 7px 9px 16px -1px rgba(0, 0, 0, 0.12);
+}
+
+.posts-box {
+    display: flex;
+    padding-top: 100px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    max-width: 350px;
+    height: auto;
+    background: #404040;
+    margin: 20px;
+    outline: 3px solid #85FFBD;
+    color: #ffffff;
+    box-shadow: 10px 10px 24px -11px rgba(0, 0, 0, 0.36);
+    position: relative;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+
+.card:hover {
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 15px 15px 24px -11px rgba(0, 0, 0, 0.36);
+
+}
+
+.card-body {
+    padding: 25px;
+
+}
+
+.card__id {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    background: #50faa0;
+    color: #000000;
+    padding: 10px;
+    font-size: 18px;
+    transform: rotate(-15deg);
+    box-shadow: 10px 10px 24px -11px rgba(0, 0, 0, 0.36);
+    z-index: 909;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card__title {
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 15px;
+
+}
+
+
+.pop-up {
+    max-width: 600px;
+    background: #404040;
+    box-shadow: 7px 9px 16px -1px rgba(0, 0, 0, 0.12);
+    padding: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.form-add-post {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-add-post input {
+    height: 40px;
+    margin-bottom: 25px;
+    border: 0px;
+    outline: 3px solid transparent;
+    transition: 0.5s;
+    padding: 20px;
+
+
+}
+
+
+
+
+.form-add-post input:focus {
+    outline: 3px solid #50faa0;
+}
+
+
+
+
+.form-add-post textarea {
+    height: 140px;
+    margin-bottom: 25px;
+    border: 0px;
+    outline: 3px solid transparent;
+    transition: 0.5s;
+    padding: 20px;
+
+}
+
+
+
+
+.form-add-post textarea:focus {
+    outline: 3px solid #50faa0;
+}
