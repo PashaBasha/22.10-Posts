@@ -145,6 +145,23 @@ body {
     z-index: 999;
 }
 
+img {
+    max-width: 100%;
+}
+
+.close-popup {
+    display: block;
+    width: 20px;
+    margin-left: auto;
+    margin-bottom: 20px;
+    transition: 0.5s;
+
+}
+
+.close-popup:hover {
+    transform: scale(1.2);
+}
+
 .form-add-post {
     display: flex;
     flex-direction: column;

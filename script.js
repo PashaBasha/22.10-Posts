@@ -4,7 +4,51 @@ const btnAddPosts = document.querySelector(".add-posts");
 
 const postBox = document.querySelector(".posts-box");
 
+const popUp = document.querySelector('.pop-up');
 
+const form = document.querySelector('.form-add-post');
+
+const closePopUp = document.querySelector('.close-popup')
+console.log(closePopUp);
+
+closePopUp.addEventListener('click', function (e) {
+    e.preventDefault()
+    popUp.hidden = true;
+})
+
+
+// form
+
+
+// 
+
+// popUp
+
+// popUp.addEventListener("mousedown", popupMove);
+
+
+// function popupMove(e) {
+//     console.log('popupMove');
+//     popUp.style.cursor = 'grab';
+//     popUp.style.left = e.pageX - popUp.offsetWidth / 2 + 'px';
+//     popUp.style.top = e.pageY - popUp.offsetHeight / 2 + 'px';
+//     document.addEventListener('mousemove', popupMove);
+// }
+
+// popUp.addEventListener("mouseup", function () {
+//     document.removeEventListener('mousemove', popupMove);
+//     document.removeEventListener('mouseup', mousedown);
+//     popUp.style.cursor = 'default';
+//     console.log("ok");
+// })
+
+
+// popUp.addEventListener('mousedown',function(e){
+
+// })
+
+
+// popUp
 
 
 // Робимо запит на сервер для отримання постів
@@ -80,13 +124,23 @@ function renderPosts(response) {
 
 
 // Фішаємо подію на кнопку додати пости та створюємо пост викликаємо функцію createPost
-btnAddPosts.addEventListener('click', (e) => {
-    const newPost = {
-        title: 'title post',
-        body: 'body text post',
-        id: 1,
+// btnAddPosts.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const title = formData.get('title');
+    const text = formData.get('text');
+    console.log(title);
 
-    };
+    let newPost = {
+        title: title,
+        body: text,
+        id: 1,
+    }
+    form.reset()
+
+    // })
+
 
     createPost(newPost, response => {
         // console.log(response);
