@@ -134,16 +134,25 @@ body {
 
 
 .pop-up {
-    max-width: 600px;
+    max-width: 400px;
     background: #404040;
     box-shadow: 7px 9px 16px -1px rgba(0, 0, 0, 0.12);
     padding: 30px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate3d(-50%, -50%);
     z-index: 999;
+    user-select: none;
+    transition: box-shadow 0.3s ease-in-out;
+
 }
+
+.pop-up.popup-move {
+    cursor: move;
+    box-shadow: 7px 9px 16px -1px rgba(0, 0, 0, 0.339);
+}
+
 
 img {
     max-width: 100%;

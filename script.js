@@ -9,7 +9,7 @@ const popUp = document.querySelector('.pop-up');
 const form = document.querySelector('.form-add-post');
 
 const closePopUp = document.querySelector('.close-popup')
-console.log(closePopUp);
+
 
 closePopUp.addEventListener('click', function (e) {
     e.preventDefault()
@@ -30,8 +30,8 @@ closePopUp.addEventListener('click', function (e) {
 // function popupMove(e) {
 //     console.log('popupMove');
 //     popUp.style.cursor = 'grab';
-//     popUp.style.left = e.pageX - popUp.offsetWidth / 2 + 'px';
-//     popUp.style.top = e.pageY - popUp.offsetHeight / 2 + 'px';
+//     popUp.style.left = e.pageX - shiftX + 'px';
+//     popUp.style.top = e.pageY - shiftY + 'px';
 //     document.addEventListener('mousemove', popupMove);
 // }
 
@@ -43,15 +43,122 @@ closePopUp.addEventListener('click', function (e) {
 // })
 
 
-// popUp.addEventListener('mousedown',function(e){
+// popUp.addEventListener('mousedown', function (e) {
 
 // })
 
 
+// function onDrag({ movementX, movementY }) {
+//     let getStyle = window.getComputedStyle(popUp);
+//     let left = parseInt(getStyle.left);
+//     let top = parseInt(getStyle.top);
+//     popUp.style.left = `${left + movementX}px`;
+//     popUp.style.top = `${top + movementY}px`;
+
+//     // popUp.style.transform = `translateX( ${left + movementX}px)`
+//     // popUp.style.transform = `translateY( ${top + movementY}px)`
+
+
+// }
+
+// popUp.addEventListener("mousedown", (e) => {
+//     if (e.target == popUp) {
+//         popUp.addEventListener("mousemove", onDrag)
+//     }
+// })
+// document.addEventListener("mouseup", () => {
+//     popUp.removeEventListener("mousemove", onDrag)
+// })
 // popUp
 
 
+
+
+
+
+
+
+
+
+
+
+
+let active = false;
+let currentX;
+let currentY;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0
+
+
+
+
+document.addEventListener("touchstart", dragStart, false);
+document.addEventListener("touchend", dragEnd, false);
+document.addEventListener("touchmove", drag, false);
+
+document.addEventListener("mousedown", dragStart, false);
+document.addEventListener("mouseup", dragEnd, false);
+document.addEventListener("mousemove", drag, false);
+
+function dragStart(e) {
+    if (e.type === "touchstart") {
+        initialX = e.touches[0].clientX - xOffset;
+        initialY = e.touches[0].clientY - yOffset;
+    } else {
+        initialX = e.clientX - xOffset;
+        initialY = e.clientY - yOffset;
+    }
+
+    if (e.target === popUp) {
+        active = true;
+        addActiveClass()
+
+    }
+}
+
+function dragEnd(e) {
+    initialX = currentX;
+    initialY = currentY;
+    active = false;
+    addActiveClass(active)
+}
+
+function addActiveClass() {
+
+        popUp.classList.toggle('popup-move');
+    
+}
+function drag(e) {
+    if (active) {
+        e.preventDefault();
+
+        if (e.type === "touchmove") {
+            currentX = e.touches[0].clientX - initialX;
+            currentY = e.touches[0].clientY - initialY;
+        } else {
+            currentX = e.clientX - initialX;
+            currentY = e.clientY - initialY;
+        }
+
+        xOffset = currentX;
+        yOffset = currentY;
+
+        setTranslate(currentX, currentY, popUp);
+    }
+}
+
+function setTranslate(xPos, yPos, el) {
+    el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+}
+
+
+
+
+
 // Робимо запит на сервер для отримання постів
+
 
 
 function getPosts(callback) {
